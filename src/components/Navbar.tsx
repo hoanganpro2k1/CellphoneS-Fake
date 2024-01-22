@@ -2,6 +2,7 @@ import Link from 'next/link';
 import MaxWidthWrapper from './MaxWidthWrapper';
 import { Icons } from './Icons';
 import NavItems from './NavItems';
+import Search from './Search';
 
 const Navbar = () => {
 	return (
@@ -16,6 +17,14 @@ const Navbar = () => {
 						</div>
 
 						<div className="hidden z-50 lg:ml-8 lg:block lg:self-stretch">
+							<NavItems />
+						</div>
+
+						<div className="mx-auto flex items-center w-[300px]">
+							<Search />
+						</div>
+
+						<div className="ml-auto flex items-center">
 							<NavItems />
 						</div>
 					</div>

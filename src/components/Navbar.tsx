@@ -3,6 +3,11 @@ import MaxWidthWrapper from './MaxWidthWrapper';
 import { Icons } from './Icons';
 import NavItems from './NavItems';
 import Search from './Search';
+import { Button } from './ui/button';
+import { Phone, ShoppingBag, Truck } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import LoginButton from './LoginButton';
+import { ROUTES } from '@/config/route';
 
 const Navbar = () => {
 	return (
@@ -20,12 +25,63 @@ const Navbar = () => {
 							<NavItems />
 						</div>
 
-						<div className="mx-auto flex items-center w-[300px]">
+						<div className="flex px-4 items-center w-80">
 							<Search />
 						</div>
 
-						<div className="ml-auto flex items-center">
-							<NavItems />
+						<div className="gap-2 flex flex-initial items-center">
+							<div className="relative flex items-center">
+								<a href="tel: 0983439381">
+									<Button
+										className="gap-1 font-normal text-xs text-white bg-transparent hover:bg-bgNavbar hover:text-white"
+										variant={'secondary'}
+									>
+										<Phone
+											strokeWidth={1.5}
+											className={cn(
+												'h-6 w-6 transition-all text-muted-foreground text-white',
+											)}
+										/>
+										Gọi mua hàng <br />
+										0983439381
+									</Button>
+								</a>
+							</div>
+							<div className="relative flex items-center">
+								<Link href={ROUTES.TRA_CUU_DON_HANG}>
+									<Button
+										className="gap-1 font-normal text-xs text-white bg-transparent hover:bg-bgNavbar hover:text-white"
+										variant={'secondary'}
+									>
+										<Truck
+											strokeWidth={1.5}
+											className={cn(
+												'h-6 w-6 transition-all text-muted-foreground text-white scale-x-[-1]',
+											)}
+										/>
+										Tra cứu <br /> đơn hàng
+									</Button>
+								</Link>
+							</div>
+							<div className="relative flex items-center">
+								<Link href={ROUTES.CART}>
+									<Button
+										className="gap-1 font-normal text-xs text-white bg-transparent hover:bg-bgNavbar hover:text-white"
+										variant={'secondary'}
+									>
+										<ShoppingBag
+											strokeWidth={1.5}
+											className={cn(
+												'h-6 w-6 transition-all text-muted-foreground text-white scale-x-[-1]',
+											)}
+										/>
+										Giỏ hàng
+									</Button>
+								</Link>
+							</div>
+							<div className="relative text-xs flex items-center">
+								<LoginButton />
+							</div>
 						</div>
 					</div>
 				</MaxWidthWrapper>
